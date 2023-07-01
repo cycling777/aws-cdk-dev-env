@@ -65,6 +65,7 @@ Run a container based on the image you built:
 docker run -it your_image_name
 ```
 This will start a container based on the image and give you an interactive terminal inside the container.
+
 4. You can now execute commands and run your application within the container.
 Note: Make sure you have Docker installed and properly configured on your system before running the above commands.
 

@@ -47,27 +47,44 @@ The image creates a directory at /var/src and copies the contents of the current
 ## Usage
 To use this Docker image, follow these steps:
 
-1. Place .secret file in the same directory as the Dockerfile like bellow.
+1. Clone this repository using the following command:
+
+```bash
+git clone <repository-url>
 ```
-AWS_DEFAULT_REGION=your-region
+Replace <repository-url> with the URL of the repository where the Dockerfile is located.
+
+2. Change into the aws-cdk-dev-env directory:
+
+```bash
+cd aws-cdk-dev-env
+```
+
+3. Create a .secret file at the root directory with the following content:
+
+```.secret
+AWS_DEFAULT_REGION=ap-northeast-1
 AWS_ACCESS_KEY_ID=your-key
 AWS_SECRET_ACCESS_KEY=your-secret-key
 AWS_DEFAULT_OUTPUT=json
 AWS_ACCOUNT_NUMBER=your-account-number
 ```
-2. Build the Docker image using the following command:
-```Copy code
-docker build -t your_image_name .
-```
-3. Replace your_image_name with the desired name for your Docker image.
-Run a container based on the image you built:
-```Copy code
-docker run -it your_image_name
-```
-This will start a container based on the image and give you an interactive terminal inside the container.
+Replace your-key, your-secret-key, and your-account-number with your actual AWS credentials and account number.
 
-4. You can now execute commands and run your application within the container.
+4. Build and start the Docker containers using docker-compose:
 
-Note: Make sure you have Docker installed and properly configured on your system before running the above commands.
+```bash
+docker-compose up -d
+```
+5. Check the container ID of the running container using docker ps command.
+
+6. Enter the container's shell by running the following command, replacing container-id with the actual container ID obtained in the previous step:
+
+```bash
+docker exec -it container-id /bin/bash
+```
+7. Set up your source code by placing it in the ./src directory within the container.
+
+Note: Make sure you have Docker and Docker Compose installed and properly configured on your system before running the above commands.
 
 Please refer to the Docker documentation for more information on building and running Docker images and containers.

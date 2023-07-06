@@ -27,6 +27,9 @@ RUN sudo apt install nodejs
 # Add user and allow it to use sudo without password
 RUN useradd -m ${USERNAME} && echo "${USERNAME}:${USERNAME}" | chpasswd && adduser ${USERNAME} sudo && echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/${USERNAME}
 
+# Modify permissions to allow poetry installs
+RUN chmod -R o+w ${PYTHONPATH}
+
 # Change user
 USER ${USERNAME}
 

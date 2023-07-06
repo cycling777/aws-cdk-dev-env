@@ -1,5 +1,0 @@
-# ignore .secret file
-.secret
-
-# ignore src/ files
-src/

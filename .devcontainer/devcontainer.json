@@ -3,27 +3,30 @@
     "dockerComposeFile": "../docker-compose.yml",
     "service": "virtual-env",
     "workspaceFolder": "/home/kenta/src",
-    "settings": {
-        "terminal.integrated.defaultProfile.linux": "/bin/bash"
+    "customizations": {
+        "vscode": {
+            "runArgs": ["-u", "kenta"],
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash"
+            },
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-azuretools.vscode-docker",
+                "oderwat.indent-rainbow",
+                "ms-vscode-remote.remote-containers",
+                "formulahendry.auto-close-tag",
+                "formulahendry.auto-rename-tag",
+                "mskelin.sonarlint-vscode",
+                "streetsidesoftware.code-spell-checker",
+                "VisualStudioExptTeam.vscodeintellicode",
+                "amazonwebservices.aws-toolkit-vscode",
+                "steoates.autoimport",
+                "esbenp.prettier-vscode"
+            ]
+        }
     },
     "remoteEnv": {
         "USERNAME": "kenta"
-    },
-    "runArgs": ["-u", "kenta"],
-    "extensions": [
-        "ms-python.python",
-        "ms-toolsai.jupyter",
-        "ms-azuretools.vscode-docker",
-        "ms-vscode-remote.remote-containers",
-        "formulahendry.auto-close-tag",
-        "formulahendry.auto-rename-tag",
-        "mskelin.sonarlint-vscode",
-        "streetsidesoftware.code-spell-checker",
-        "VisualStudioExptTeam.vscodeintellicode",
-        "amazonwebservices.aws-toolkit-vscode",
-        "steoates.autoimport",
-        "esbenp.prettier-vscode",
-        "MS-CEINTL.vscode-language-pack-ja"
-    ]
+    }
 }
-

@@ -8,6 +8,7 @@ services:
       - 8080:80
     volumes:
       - ./src:/home/kenta/src
+      - /var/run/docker.sock:/var/run/docker.sock
     tty: true
     env_file:
       - .secret

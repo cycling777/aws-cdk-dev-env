@@ -12,7 +12,7 @@ ENV TZ="Asia/Tokyo"
 
 # Set timezone and install basic packages
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-RUN apt update && apt install -y tzdata python3 python3-pip curl unzip sudo git
+RUN apt update && apt install -y tzdata python3 python3-pip curl unzip sudo git docker.io
 RUN dpkg-reconfigure -f noninteractive tzdata
 
 # Install git

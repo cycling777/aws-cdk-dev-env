@@ -57,6 +57,7 @@ WORKDIR /home/${USERNAME}/${SRCDIR}
 USER root
 COPY . .
 RUN chown -R ${USERNAME}:${USERNAME} ./
+RUN chown ${USERNAME}:docker /var/run/docker.sock
 USER ${USERNAME}
 # Modify permissions to allow poetry installs
 RUN sudo chmod -R o+w /usr/local/

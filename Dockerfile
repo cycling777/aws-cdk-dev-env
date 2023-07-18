@@ -27,6 +27,10 @@ RUN sudo apt install nodejs
 # Add user and allow it to use sudo without password
 RUN useradd -m ${USERNAME} && echo "${USERNAME}:${USERNAME}" | chpasswd && adduser ${USERNAME} sudo && echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/${USERNAME}
 
+# Add user to the 'docker' group
+RUN groupadd docker
+RUN usermod -aG docker ${USERNAME}
+
 # Change user
 USER ${USERNAME}
 

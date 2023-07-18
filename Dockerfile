@@ -28,7 +28,7 @@ RUN sudo apt install nodejs
 RUN useradd -m ${USERNAME} && echo "${USERNAME}:${USERNAME}" | chpasswd && adduser ${USERNAME} sudo && echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/${USERNAME}
 
 # Add user to the 'docker' group
-RUN groupadd docker
+RUN getent group docker || groupadd docker
 RUN usermod -aG docker ${USERNAME}
 
 # Change user

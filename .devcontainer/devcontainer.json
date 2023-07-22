@@ -23,7 +23,8 @@
                 "VisualStudioExptTeam.vscodeintellicode",
                 "amazonwebservices.aws-toolkit-vscode",
                 "steoates.autoimport",
-                "esbenp.prettier-vscode"
+                "esbenp.prettier-vscode",
+                "github.copilot"
             ]
         }
     },

@@ -25,7 +25,10 @@ RUN sudo bash nodesource_setup.sh
 RUN sudo apt install nodejs
 
 # Add user and allow it to use sudo without password
-RUN useradd -m ${USERNAME} && echo "${USERNAME}:${USERNAME}" | chpasswd && adduser ${USERNAME} sudo && echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/${USERNAME}
+RUN useradd -m ${USERNAME} && \
+    echo "${USERNAME}:${USERNAME}" | chpasswd && \
+    usermod -aG sudo ${USERNAME} && \
+    echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/${USERNAME}
 
 # Add user to the 'docker' group
 RUN getent group docker || groupadd docker
@@ -57,7 +60,7 @@ WORKDIR /home/${USERNAME}/${SRCDIR}
 USER root
 COPY . .
 RUN chown -R ${USERNAME}:${USERNAME} ./
-RUN chown ${USERNAME}:docker /var/run/docker.sock
+# RUN chown ${USERNAME}:docker /var/run/docker.sock
 USER ${USERNAME}
 # Modify permissions to allow poetry installs
 RUN sudo chmod -R o+w /usr/local/

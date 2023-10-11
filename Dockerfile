@@ -64,3 +64,4 @@ RUN chown -R ${USERNAME}:${USERNAME} ./
 USER ${USERNAME}
 # Modify permissions to allow poetry installs
 RUN sudo chmod -R o+w /usr/local/
+RUN sudo chown -R ${USERNAME} /usr/include/python3.10/
